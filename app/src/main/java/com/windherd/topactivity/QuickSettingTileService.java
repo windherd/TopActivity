@@ -54,6 +54,7 @@ public class QuickSettingTileService extends TileService {
     public void onClick() {
         if (WatchingAccessibilityService.getInstance() == null || !Settings.canDrawOverlays(this)) {
             Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra(MainActivity.EXTRA_FROM_QS_TILE, true);
             startActivityAndCollapse(intent);
         } else {
